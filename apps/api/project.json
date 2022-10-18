@@ -25,6 +25,16 @@
               "replace": "apps/api/src/environments/environment.ts",
               "with": "apps/api/src/environments/environment.prod.ts"
             }
+          ],
+          "assets": [{ "glob": "Dockerfile", "input": "apps/api", "output": "." }],
+          "externalDependencies": [
+            "@nestjs/microservices",
+            "@nestjs/microservices/microservices-module",
+            "@nestjs/websockets/socket-module",
+            "class-transformer",
+            "class-validator",
+            "cache-manager",
+            "cache-manager/package.json"
           ]
         }
       }
@@ -54,6 +64,17 @@
         "jestConfig": "apps/api/jest.config.ts",
         "passWithNoTests": true
       }
+    },
+    "deploy": {
+      "executor": "@bg-hoard/internal-plugin:heroku-deploy",
+      "outputs": [],
+      "options": {
+        "distLocation": "dist/apps/api",
+        "herokuAppName": "nxconf-fe-app-aldenho"
+      },
+      "dependsOn": [
+        { "target": "build", "projects": "self", "params": "forward" }
+      ]
     }
   },
   "tags": ["scope:api", "type:app"]
