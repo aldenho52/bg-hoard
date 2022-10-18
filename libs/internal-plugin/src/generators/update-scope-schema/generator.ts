@@ -41,6 +41,7 @@ function updateSchemaJson(tree: Tree, scopes: string[]) {
 }
 
 function updateSchemaInterface(tree: Tree, scopes: string[]) {
+  console.log('hello world')
   const joinScopes = scopes.map((s) => `'${s}'`).join(' | ');
   const interfaceDefinitionFilePath =
     'libs/internal-plugin/src/generators/util-lib/schema.d.ts';
