@@ -20,6 +20,6 @@ jobs:
           fetch-depth: 0
       - uses: bahmutov/npm-install@v1
       - run: npx nx build store --configuration=production
-      - run: npx nx build admin-ui --configuration=production
+#      - run: npx nx build admin-ui --configuration=production
       - run: npx nx deploy store
-      - run: npx nx deploy admin-ui
+#      - run: npx nx deploy admin-ui
